@@ -29,54 +29,35 @@
     <link href="blog.css" rel="stylesheet">
 </head>
 <main class="container">
-  <div class="row rounded bg-dark">
+  <div class="row rounded bg-dark mb-4 appear-element-case-minimum">
     <div class="col p-4 p-md-5 mb-4 text-white row">
       <div class="px-0">
-        <h2 class="display-4 font-italic">Welcome to Higuchi's <br> self-introduction page.</h2>
+        <h2 class="display-4 font-italic title-font-case-minimum">Welcome to Higuchi's <br> self-introduction page.</h2>
         <p class="lead my-3">著者の趣味を紹介するページです</p>
       </div>
     </div>
-    <div class="col-md-4 offset-md-1">
-      <img class="triangle" src="./../../assets/Toyamayoko.jpg" width="428" height="350">
+    <div class="col-md-4 offset-md-1 clear-element">
+      <img src="./../../assets/Toyamayoko.jpg" width="428" height="350">
     </div>
   </div>
 
-  <div class="row mb-2">
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-primary">国際</strong>
-          <h3 class="mb-0">人気のポスト</h3>
-          <div class="mb-1 text-muted">11/12</div>
-          <p class="card-text mb-auto">これは写真の解説文付きのカードです。自然に説明を加えることができます。</p>
-          <a href="#" class="stretched-link">続きを読む</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-        </div>
+  <div class="row d-flex justify-content-around">
+    <div class="col-md-6 row">
+      <postCard class="col" :summary="'Indoor hobby'" :title="'読書'" p-none />
+      <div class="col-md content_area">
+        <img src="src/assets/bookAndCofee.png" height="272" width="280" class="img">
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-        <div class="col p-4 d-flex flex-column position-static">
-          <strong class="d-inline-block mb-2 text-success">デザイン</strong>
-          <h3 class="mb-0">ポストのタイトル</h3>
-          <div class="mb-1 text-muted">11/11</div>
-          <p class="mb-auto">これは写真の解説文付きのカードです。自然に説明を加えることができます。</p>
-          <a href="#" class="stretched-link">続きを読む</a>
-        </div>
-        <div class="col-auto d-none d-lg-block">
-          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
-
-        </div>
+    <div class="col-md-6 row">
+     <postCard class="col" :summary="'Outdoor  hobby'" :title="'Frestyle Fottball'" p-none />
+      <div class="col-md content_area">
+        <video alt="freestyle"  autoplay  loop muted src="src/assets/VID_36081025_093034_176.mp4" height="272" width="280" class="img"/>
       </div>
     </div>
   </div>
-
   <div class="row">
     <div class="col-md-8">
-      <h3 class="pb-4 mb-4 font-italic border-bottom">
+      <h3 class="pb-4 mb-4 font-italic border-bottom img">
         From the Firehose
       </h3>
 
@@ -191,16 +172,15 @@
 </template>
 
 <script lang="ts">
+import postCard from './../organisms/postCard.vue'
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'test3',
-  props: {
-    msg: {
-      type: String,
-      required: true
-    }
+    components: {
+    postCard
   },
 })
+
 </script>
 
 <style lang="scss">
@@ -216,19 +196,30 @@ export default defineComponent({
     .bd-placeholder-img-lg {
         font-size: 3.5rem;
     }
+
+    .ppear-element-case-minimum {
+      display: none;
+    }
 }
 
-.diagonal-box {
-  box-sizing: boder-box;
-  padding: auto;
-  background-color: #fff;
-  text-align: center;
-  transform:skewX(-30deg) translateX(-25%);
-  overflow:hidden;
-  }
+@media screen and (max-width: 479px) { /*ウィンドウ幅が最大479pxまでの場合に適用*/
+    .clear-element {
+        display: none;
+    }
 
-.adjust-transform {
-  transform:skewX(30deg);
+    .appear-element-case-minimum {
+      background-image: url("./../../assets/Toyamayoko.jpg");
+      background-size: cover;
+    }
+
+    .title-font-case-minimum {
+      color:rgb(40, 97, 255);
+      font: bold italic weight;
+    }
+}
+
+.img{
+  background-color: black;
 }
 
 </style>
