@@ -45,13 +45,13 @@
     <div class="col-md-6 row">
       <postCard class="col" :summary="'Indoor hobby'" :title="'読書'" p-none />
       <div class="col-md content_area">
-        <img src="src/assets/bookAndCofee.png" height="272" width="280" class="img">
+        <img src="./../../assets/bookAndCofee.png" height="272" width="330" class="img">
       </div>
     </div>
     <div class="col-md-6 row">
      <postCard class="col" :summary="'Outdoor  hobby'" :title="'Frestyle Fottball'" p-none />
       <div class="col-md content_area">
-        <video alt="freestyle"  autoplay  loop muted src="src/assets/VID_36081025_093034_176.mp4" height="272" width="280" class="img"/>
+        <video alt="freestyle"  autoplay  loop muted src="./../../assets/VID_36081025_093034_176.mp4" height="272" width="330" class="img"/>
       </div>
     </div>
   </div>
